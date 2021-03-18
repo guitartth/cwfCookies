@@ -32,6 +32,11 @@ if(!$class_id)
     $class_id = filter_input(INPUT_GET, 'class_id', FILTER_VALIDATE_INT);
 }
 
+$userName = filter_input(INPUT_GET, 'userName', FILTER_SANITIZE_STRING);
+if(!$userName)
+{
+    $userName = "testName";
+}
 
 
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
@@ -51,6 +56,7 @@ if(!$order)
     $order = filter_input(INPUT_GET, 'order', FILTER_SANITIZE_STRING);
 }
 
+echo '<script>alert("'.$action.$userName.'")</script>';
 switch ($action)
 {
     case "search_vehicles":
@@ -91,6 +97,24 @@ switch ($action)
             include('view/vehicle_list.php');
             break;
         }
+    case "register":   
+        if($userName == "testName")
+        {
+            include('./view/register.php');
+        }
+        else
+        {
+            $lifetime = 60 * 60 * 24 * 14;
+            session_set_cookie_params($lifetime, '/');
+            session_start();
+            $path = '/';
+            setcookie($userId, $userName, $lifetime, $path);
+            include('./view/success.php');
+        }
+        
+        break;
+    case "testing":
+        include('../admin/view/vehicle_list.php');
     default:
         $vehicles = get_vehicles_by_class($class_id, $order);
         $makes = get_makes();

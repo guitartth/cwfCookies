@@ -6,9 +6,11 @@
 ?>
 
 <?php include('header.php'); ?>
+
+
 <section id="userSelect" class="userSelect">
     <h3>Narrow Results:</h3>
-    
+
     <form action="." method="get" id="select_make" class="select_make">
         <input type="hidden" name="action" value="search_vehicles">
         <select name="make_id" id="make_drop">

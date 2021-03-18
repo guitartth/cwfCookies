@@ -11,5 +11,26 @@
 <body>
 <header>
     <h1>Zippy Used Autos</h1>
+
+    <section id="registerUser" class="registerUser">
+
+<!--
+    <?php($userName != "testName")
+    { ?>
+        <form action="." method="post">
+            <input type="hidden" name="action" value="register">
+            <button class="modify-button bold">Register User</button>
+        </form>
+    }
+     
+    
+    
+    
+    ?>
+
+-->
+
+    
+    </section>
     <hr>
 </header>
