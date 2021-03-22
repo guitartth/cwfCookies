@@ -12,23 +12,29 @@
 <header>
     <h1>Zippy Used Autos</h1>
 
-    <section id="registerUser" class="registerUser">
+    
 
-<!--
-    <?php($userName != "testName")
-    { ?>
+
+    <?php if (!isset($_SESSION['userId'])){ ?>
         <form action="." method="post">
             <input type="hidden" name="action" value="register">
             <button class="modify-button bold">Register User</button>
         </form>
-    }
+    <?php } else if($action != "logout") { ?>
+        <h4>Hello, <?= $_SESSION['userId']; ?>!</h4>
+        <form action="." method="post">
+            <input type="hidden" name="action" value="logOut">
+            <button class="modify-button bold">Log Out</button>
+        </form>
+    <?php } else  { ?>
+        <h4>Thank you,  <? $_SESSION['userId']; ?> ! </h4>
+    <?php } ?>
      
     
     
     
-    ?>
 
--->
+
 
     
     </section>

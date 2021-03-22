@@ -10,6 +10,12 @@ require ('./model/make_db.php');
 require ('./model/type_db.php');
 require ('./model/class_db.php');
 
+
+//Start Session
+$lifetime = 60 * 60 * 24 * 14; //cookie will save for 2 weeks
+session_set_cookie_params($lifetime, '/');
+session_start();
+
 $userMake;
 $userType;
 $userClass;
@@ -39,6 +45,7 @@ if(!$userName)
 }
 
 
+
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if(!$action)
 {
@@ -56,7 +63,11 @@ if(!$order)
     $order = filter_input(INPUT_GET, 'order', FILTER_SANITIZE_STRING);
 }
 
-echo '<script>alert("'.$action.$userName.'")</script>';
+
+
+
+
+//echo '<script>alert("'.$action.$userName.'")</script>';
 switch ($action)
 {
     case "search_vehicles":
@@ -104,17 +115,14 @@ switch ($action)
         }
         else
         {
-            $lifetime = 60 * 60 * 24 * 14;
-            session_set_cookie_params($lifetime, '/');
-            session_start();
-            $path = '/';
-            setcookie($userId, $userName, $lifetime, $path);
+            $_SESSION['userId'] = $userName;
+            $names = $_SESSION['userId'];
             include('./view/success.php');
         }
-        
         break;
-    case "testing":
-        include('../admin/view/vehicle_list.php');
+    case "logOut":
+        include('./view/logout.php');
+        break;
     default:
         $vehicles = get_vehicles_by_class($class_id, $order);
         $makes = get_makes();
@@ -123,6 +131,4 @@ switch ($action)
         include('view/vehicle_list.php');
         break;
 }
-    
-
 ?>

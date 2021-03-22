@@ -8,10 +8,10 @@
 <?php include('header.php'); 
 echo '<script>alert("Thank you for registering!")</script>'; ?>
 
-<meta http-equiv="refresh" content="5;url=./?action=default" />
+<meta http-equiv="refresh" content="3;url=./?action=default&userName='.$userName.'" />
 
 <h2>Registration Successful!</h2>
-You will be redirected back home in 5 seconds.
+You will be redirected back home in 3 seconds.
 
 
 
