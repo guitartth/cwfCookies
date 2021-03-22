@@ -13,10 +13,10 @@
         exit();
     }
     
-    /*
+    
 
     //LOCAL CONNECTION TESTING DATABASE SETUP
-    
+    /*
     $dsn = 'mysql:host=localhost;dbname=zippyusedautos';
     $username = 'root';
     
