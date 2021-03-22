@@ -1,18 +1,19 @@
 <?php
     //HEROKU DATABASE CONNECTION
-    /*
-    $username = 'owzs8em1up7zunda';
-    $password = 'p6hsseoock6gyigv';
+    
+    $username = 'zjl1dbudkoc5rr6c';
+    $password = 'vginhqvgkqrs7obm';
 
 
     try {
-        $db = new PDO('mysql:host=lyn7gfxo996yjjco.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=j4ja3drkko4xna1i', $username, $password);
+        $db = new PDO('mysql:host=eyw6324oty5fsovx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=dgtn366u7rngrzgc', $username, $password);
     } catch (PDOException $e) {
         $error_message = $e->getMessage();
         echo $error_message;
         exit();
     }
-    */
+    
+    /*
 
     //LOCAL CONNECTION TESTING DATABASE SETUP
     
@@ -26,5 +27,5 @@
         include('./view/error.php');
         exit();
     }
-    
+    */
 ?>
